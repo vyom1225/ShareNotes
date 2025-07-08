@@ -1,11 +1,19 @@
-export default function DocLayout({
+import RoomProvider from "@/components/RoomProvider";
+import { auth } from "@clerk/nextjs/server";
+
+export default async function DocLayout({
   children,
+  params
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode,
+  params : {id: string}
 }) {
-  return (
-    <div>
-         {children}
-    </div>
-  )
+    auth.protect();
+
+    const roomId = await params.id;
+    return (
+        <RoomProvider roomId = {roomId}>
+             {children}
+        </RoomProvider>
+    )
 }

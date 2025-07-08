@@ -16,7 +16,7 @@ function Header() {
                 </h1>
                 )}
             </div>  
-            <Breadcrumbs/>    
+            <Breadcrumbs/>      
             <div>
                 <SignedOut>
                     <SignInButton/>

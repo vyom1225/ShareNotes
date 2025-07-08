@@ -1,8 +1,10 @@
+import LiveBlocksProvider from "@/components/LiveblocksProvider";
+
 function layout({children} : {children: React.ReactNode }) {
   return (
-    <div>
+    <LiveBlocksProvider>
         {children}
-    </div> 
+    </LiveBlocksProvider>
   )
 }
 export default layout
