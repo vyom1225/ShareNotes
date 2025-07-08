@@ -10,6 +10,8 @@ import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUsers from "./InviteUsers";
+import ManageUsers from "./ManageUsers";
+import { Avatars } from "./Avatars";
 
 function Document({id} : {id : string}) {
 
@@ -51,6 +53,10 @@ function Document({id} : {id : string}) {
                     <DeleteDocument/>
                 </>
             )}
+            <div>
+                <ManageUsers/>
+                <Avatars/>
+            </div>
         </form>
         <Editor/>
     </div>
