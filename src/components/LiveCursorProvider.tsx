@@ -1,6 +1,6 @@
 "use client";
 
-import { useMyPresence, useOthers } from "@liveblocks/react";
+import { useMyPresence, useOthers } from "@liveblocks/react/suspense";
 import { PointerEvent } from "react";
 import FollowPointer from "./FollowPointer";
 
@@ -26,6 +26,7 @@ function LiveCursorProvider({children} : {
         <div
             onPointerMove={handlePointerMove}
             onPointerLeave={handlePointerLeave}
+            className="w-full"
         >{
             others
             .filter((other) => other.presence.cursor !== null)
@@ -38,6 +39,7 @@ function LiveCursorProvider({children} : {
                 />    
             ))
         }
+        {children}
         </div>
     )
 }

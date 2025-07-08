@@ -25,9 +25,9 @@ function Breadcrumbs() {
                 const isLast = (index === segments.length - 1);
                 
                 return(
-                    <Fragment>
+                    <Fragment key={index}>
                         <BreadcrumbSeparator/>
-                        <BreadcrumbItem key={index}>
+                        <BreadcrumbItem >
                             {isLast ? (
                                 <BreadcrumbPage>{segment}</BreadcrumbPage>
                             ) : (

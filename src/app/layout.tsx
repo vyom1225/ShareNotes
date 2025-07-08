@@ -4,16 +4,8 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,14 +20,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
         <html lang="en">
-        <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className="flex flex-col min-h-screen">
             <Header/>
-            <div className="flex flex-1">
+            <div className="flex flex-1 bg-green-400">
                 <Sidebar/>
                 {children}
             </div>
+            <Toaster richColors />
         </body>
         </html>
     </ClerkProvider>

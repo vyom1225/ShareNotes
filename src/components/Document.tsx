@@ -6,12 +6,16 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Input } from "./ui/input";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import Editor from "./Editor";
+import useOwner from "@/lib/useOwner";
+import DeleteDocument from "./DeleteDocument";
 
 function Document({id} : {id : string}) {
 
     const [isPending, startTransition] = useTransition();
     const [data , loading , error] = useDocumentData(doc(db, "documents", id));
     const [title, setTitle] = useState("");
+    const isOwner = useOwner();
 
     useEffect(() => {
         if(data){
@@ -31,7 +35,7 @@ function Document({id} : {id : string}) {
         }
     }
   return (
-    <div>
+    <div className="bg-pink-400 z-10">
         <form onSubmit={updateTitle}>
             <Input  onChange = {((e) => setTitle(e.target.value))}/>
             <Button 
@@ -40,7 +44,11 @@ function Document({id} : {id : string}) {
             >
                 {isPending ? "Updating..." : "Update"}
             </Button>
+            {isOwner && (
+                <DeleteDocument/>
+            )}
         </form>
+        <Editor/>
     </div>
 
 

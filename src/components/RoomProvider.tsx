@@ -14,6 +14,7 @@ function RoomProvider({roomId , children} : {
                 initialPresence={{
                     cursor : null
                 }}
+               
             >
                 <ClientSideSuspense fallback={<LoadingSpinner/>}>
                     <LiveCursorProvider>

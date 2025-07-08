@@ -10,10 +10,13 @@ export default async function DocLayout({
 }) {
     auth.protect();
 
-    const roomId = await params.id;
+    const {id} = await params;
     return (
-        <RoomProvider roomId = {roomId}>
+       <RoomProvider roomId = {id}> 
              {children}
         </RoomProvider>
+    // <div className="bg-blue-400">
+    //     {children}
+    // </div>
     )
 }
