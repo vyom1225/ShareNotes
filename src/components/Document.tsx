@@ -12,6 +12,8 @@ import DeleteDocument from "./DeleteDocument";
 import InviteUsers from "./InviteUsers";
 import ManageUsers from "./ManageUsers";
 import { Avatars } from "./Avatars";
+import { TranslateDocument } from "./TranslateDocument";
+import ChatToDocument from "./ChatToDocument";
 
 function Document({id} : {id : string}) {
 
@@ -56,6 +58,10 @@ function Document({id} : {id : string}) {
             <div>
                 <ManageUsers/>
                 <Avatars/>
+            </div>
+            <div>
+                <TranslateDocument doc = {doc}/>
+                <ChatToDocument doc = {doc}/>
             </div>
         </form>
         <Editor/>
