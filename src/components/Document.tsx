@@ -40,7 +40,7 @@ function Document({id} : {id : string}) {
         }
     }
   return (
-    <div className="bg-muted-foreground/10 h-full p-4">
+    <div className="flex flex-col bg-muted-foreground/10 h-full p-4">
         <div className="bg-white p-4 h-full space-y-4">
             <div className="flex w-full max-w-6xl mx-auto gap-2">
                 <form onSubmit={updateTitle} className="flex-1 flex gap-2">

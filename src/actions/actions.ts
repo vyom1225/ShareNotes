@@ -7,8 +7,10 @@ import liveblocks from "@/lib/liveblocks";
 
 
 export async function createNewDocument(){
-    auth.protect();
+    const { userId, redirectToSignIn } = await auth()
 
+    if (!userId) return redirectToSignIn()
+        
     const {sessionClaims} = await auth();
 
     const docCollectionRef = adminDb.collection("documents");

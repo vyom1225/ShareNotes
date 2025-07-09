@@ -6,39 +6,39 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { doc } from "firebase/firestore";
 import { usePathname } from "next/navigation"
 import { Fragment } from "react";
+import { useDocumentData} from "react-firebase-hooks/firestore";
+import { db } from "../../firebase";
 
 function Breadcrumbs() {
     const path = usePathname();
     const segments = path.split("/")
+    let data = {
+        title : ""
+    }
+    if(segments.length > 2){
+        const id = segments[segments.length -1];
+        let [data , loading , error] = useDocumentData(doc(db, "documents", id));
+    }
+   
     return (
        <Breadcrumb>
         <BreadcrumbList>
             <BreadcrumbItem>
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
-            {segments.map((segment, index) => {
-
-                if (!segment) return null;
-                const href = `/${segments.slice(0, index + 1).join("/")}`;
-                const isLast = (index === segments.length - 1);
-                
-                return(
-                    <Fragment key={index}>
+            {
+                segments.length > 2 && (
+                    <>
                         <BreadcrumbSeparator/>
-                        <BreadcrumbItem >
-                            {isLast ? (
-                                <BreadcrumbPage>{segment}</BreadcrumbPage>
-                            ) : (
-                                <BreadcrumbLink href={href}>
-                                {segment}
-                                </BreadcrumbLink> 
-                            )}           
+                        <BreadcrumbItem>
+                            <BreadcrumbPage>{data?.title}</BreadcrumbPage>
                         </BreadcrumbItem>
-                    </Fragment>
+                    </>
                 )
-            })}
+            }
         </BreadcrumbList>
         </Breadcrumb>
     )
