@@ -10,6 +10,8 @@ import "@blocknote/core/fonts/inter.css"
 import { stringToColor } from '@/lib/stringToColor';
 import { BlockNoteEditor } from '@blocknote/core';
 import { useCreateBlockNote } from '@blocknote/react';
+import { TranslateDocument } from './TranslateDocument';
+import ChatToDocument from './ChatToDocument';
 
 interface EditorProps {
     doc : Y.Doc;
@@ -37,6 +39,7 @@ function BlockNote({ doc, provider, darkMode }: EditorProps) {
             <BlockNoteView
             theme={darkMode ? "dark" : "light"}
             editor = {editor}
+            className='mt-8 max-w-5xl mx-auto'
             />
         </div>
         
@@ -72,7 +75,9 @@ export function Editor() {
 
     return (
         <div>
-            <div>
+            <div className="flex justify-end w-full max-w-6xl mx-auto gap-2 mt-8 ">                      
+                <TranslateDocument doc = {doc}/>
+                <ChatToDocument doc = {doc}/>
                 <Button 
                 className={style} 
                 onClick={() => setDarkMode(!darkMode)}

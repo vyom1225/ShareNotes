@@ -22,7 +22,7 @@ export default function RootLayout({
         <html lang="en">
         <body className="flex flex-col min-h-screen">
             <Header/>
-            <div className="flex flex-1 bg-green-400">
+            <div className="flex flex-1">
                 <Sidebar/>
                 {children}
             </div>

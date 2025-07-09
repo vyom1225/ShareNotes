@@ -17,9 +17,9 @@ function SideBarOption({href , id } : {href: string, id: string}) {
     return (
         <Link
             href={href}
-            className={` ${isActive ? 'bg-secondary text-primary' : 'text-muted-foreground'}`}
+            className={` ${isActive ? 'bg-muted-foreground/15 text-semibold' : ""}`}
         >
-            <p className="truncate">{data.title}</p>
+            <div className="text-black truncate border-1 border-black p-2 rounded-md">{data.title}</div>
         </Link>
     )
 }

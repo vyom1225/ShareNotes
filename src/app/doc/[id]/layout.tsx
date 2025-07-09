@@ -15,8 +15,5 @@ export default async function DocLayout({
        <RoomProvider roomId = {id}> 
              {children}
         </RoomProvider>
-    // <div className="bg-blue-400">
-    //     {children}
-    // </div>
     )
 }

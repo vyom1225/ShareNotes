@@ -13,8 +13,8 @@ export function Avatars(){
     const all = [...others, self];
 
     return (
-        <div>
-            <p>Users Currently editing this page</p>
+        <div className="flex">
+            <p className="text-muted-foreground text-semibold mr-2">Users Currently editing this page</p>
             <div>
                 {all.map((user) => {
                     return (<Tooltip>

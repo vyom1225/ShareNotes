@@ -59,7 +59,7 @@ function InviteUsers() {
                     Enter the email address of the user you want to invite to this document.
                 </DialogDescription>
                 </DialogHeader>
-                <form onSubmit = {handleInvite}>
+                <form onSubmit = {handleInvite} className="flex gap-2">
                     <Input
                         placeholder = "Enter email address"
                         value = {email}

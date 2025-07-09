@@ -68,6 +68,7 @@ function ManageUsers() {
                     {usersInRoom?.docs.map((doc) => (
                         <div 
                             key = {doc.data().userId}
+                            className="flex justify-between items-center"
                         >
                             <p>
                                 {doc.data().userId === user?.emailAddresses[0].toString()

@@ -75,7 +75,7 @@ function Sidebar() {
    },[data])
 
   return (
-    <div className="max-w-[400px] border-r-1 border-secondary">
+    <div className="p-4 border-r-1 border-secondary bg-muted-foreground/15 flex flex-col gap-4">
         <div className="md:hidden">
             <Sheet>
             <SheetTrigger>Open</SheetTrigger>
@@ -91,36 +91,40 @@ function Sidebar() {
             </Sheet>
         </div>
         <NewDocumentButton/>
-        <h2 className="text-lg font-semibold mt-4">My Documents</h2>
-        {   
-            groupedData.owner.length === 0 ? (
-                <div className="text-center text-muted-foreground mt-4">
-                    You have no rooms as an owner.
-                </div>
-            ) : (
-                <div>
-                   
-                    {groupedData.owner.map((doc) => (
-                        <SideBarOption key = {doc.id} id = {doc.id} href = {`/doc/${doc.id}`}/>
-                    ))}
-                </div>
-            )
-        }
-        <h2 className="text-lg font-semibold mt-4">Shared with me</h2>
-        {
-            groupedData.editor.length === 0 ? (
-                <div className="text-center text-muted-foreground mt-4">
-                    No Documents Found
-                </div>
-            ) : (
-                <div>
-                    
-                    {groupedData.editor.map((doc) => (
-                        <SideBarOption key = {doc.id} id = {doc.id} href = {`/doc/${doc.id}`}/>
-                    ))}
-                </div>
-            )
-        }
+        <div className="flex flex-col gap-2">
+            <h2 className="text-sm text-muted-foreground font-semibold">My Documents</h2>
+            {   
+                groupedData.owner.length === 0 ? (
+                    <div className="text-center text-muted-foreground texi-semibold">
+                        No Documents.
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-2 ">      
+                        {groupedData.owner.map((doc) => (
+                            <SideBarOption key = {doc.id} id = {doc.id} href = {`/doc/${doc.id}`}/>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+        <div className="flex flex-col gap-2">
+            <h2 className="text-sm text-muted-foreground font-semibold">Shared with me</h2>
+            {
+                groupedData.editor.length === 0 ? (
+                    <div className="text-center text-muted-foreground text-sm text-semibold">
+                        No Documents
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-2">
+                        
+                        {groupedData.editor.map((doc) => (
+                            <SideBarOption key = {doc.id} id = {doc.id} href = {`/doc/${doc.id}`}/>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+       
     </div>
   )
 }
