@@ -3,26 +3,33 @@ import {
     getApps,
     getApp,
     cert,
-    App
+    App,
+    ServiceAccount
 } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore"; 
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string);
+const serviceAccount  = JSON.parse(
+  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT as string, "base64").toString("utf-8")
+);
 
+console.log("Service Account:", serviceAccount);
 let app: App;
 
 if(getApps().length === 0) {
-    app = initializeApp({
+    app = initializeApp(
+        {
         credential: cert({
             projectId: serviceAccount.project_id,
             clientEmail: serviceAccount.client_email,
             privateKey: serviceAccount.private_key.replace(/\\n/g, "\n"),
+            
         })
-    });
-}else{
+        }
+)}else{
     app = getApp();
 }
 
 const adminDb = getFirestore(app);
+
 
 export { adminDb , app as adminApp };
