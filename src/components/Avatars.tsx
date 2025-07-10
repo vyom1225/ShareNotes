@@ -18,7 +18,7 @@ export function Avatars(){
             <div>
                 {all.map((user , index) => {
                     return (
-                    <Tooltip>
+                    <Tooltip key = {index}>
                         <TooltipTrigger>
                             <Avatar className={`${index != 0 ? `transform -translate-x-5 z-${index}` : ""}`}>
                                 <AvatarImage src={user?.info.avatar}/>

@@ -7,9 +7,6 @@ import { Menu } from "lucide-react";
 import Sidebar from "./Sidebar";
 
 function Header() {
-    const {user} = useUser();
-
-
     return (
        <div className="relative min-h-[50px] flex justify-center  items-center p-2 ">
             <div className="md:hidden absolute left-0 flex items-center ml-4 ">

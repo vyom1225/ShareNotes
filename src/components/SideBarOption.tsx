@@ -3,12 +3,10 @@ import Link from "next/link"
 import {  useDocumentData } from "react-firebase-hooks/firestore"
 import { db } from "../../firebase";
 import { usePathname } from "next/navigation";
-import path from "path";
-import { pathToFileURL } from "url";
 
 function SideBarOption({href , id } : {href: string, id: string}) {
 
-    const [data , loading , error] = useDocumentData(doc(db , "documents" , id));
+    const [data] = useDocumentData(doc(db , "documents" , id));
     const pathname = usePathname();
     const isActive = href.includes(pathname) && pathname !== '/';
 

@@ -2,19 +2,17 @@
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { useState, useTransition } from "react";
 import { Button } from "./ui/button";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { toast } from "sonner";
-import { deleteDocument, inviteUserToDocument } from "@/actions/actions";
+import { inviteUserToDocument } from "@/actions/actions";
 import { Input } from "./ui/input";
 
 function InviteUsers() {

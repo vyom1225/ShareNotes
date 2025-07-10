@@ -1,9 +1,7 @@
 import Document from "@/components/Document";
 
 async function Docpage({params} : {
-    params : {
-        id : string
-    }
+    params : Promise<{id: string}>
 }) {
 
     const {id} = await params;

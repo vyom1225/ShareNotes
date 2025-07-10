@@ -6,7 +6,7 @@ export default async function DocLayout({
   params
 }: {
   children: React.ReactNode,
-  params : {id: string}
+  params : Promise<{id : string}>
 }) {
     auth.protect();
 

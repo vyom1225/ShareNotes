@@ -1,20 +1,10 @@
 "use client";
-
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 import NewDocumentButton from "./NewDocumentButton"
 import { collectionGroup, DocumentData, query, where } from "firebase/firestore"
 import { db } from "../../firebase";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { group } from "console";
 import SideBarOption from "./SideBarOption";
 
 
