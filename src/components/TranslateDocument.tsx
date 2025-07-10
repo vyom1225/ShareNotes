@@ -106,12 +106,13 @@ export function TranslateDocument({doc} : {doc : Y.Doc}){
                     
                 )}
 
-                <form onSubmit = {handleAskQuestions}>
+                <form onSubmit = {handleAskQuestions} className="flex gap-2">
                     <Select
                         value = {language}
-                        onValueChange={(value) => setLanguage(value)}
+                        onValueChange={(value) => setLanguage(value)
+                        }
                     >
-                        <SelectTrigger className="w-[180px]">
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Select a Language" />
                         </SelectTrigger>
                         <SelectContent>
@@ -123,7 +124,6 @@ export function TranslateDocument({doc} : {doc : Y.Doc}){
                         </SelectContent>
                     </Select>
                     <Button 
-                        variant = "outline"
                         type = "submit"
                         disabled = {isPending || !language}
                     >

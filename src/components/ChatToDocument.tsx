@@ -76,8 +76,8 @@ function ChatToDocument({doc} : {doc : Y.Doc}) {
                     Ask a question and chat to the document with AI
                 </DialogDescription>
 
-                 {question && 
-                    <p>Q: {question}</p>
+                {question && 
+                    <p className="text-sm text-gray-500">Q: {question}</p>
                 }
                 </DialogHeader>
 
@@ -94,7 +94,7 @@ function ChatToDocument({doc} : {doc : Y.Doc}) {
 
 
 
-                <form onSubmit = {handleAskQuestion}>
+                <form onSubmit = {handleAskQuestion} className="flex  gap-2">
                     <Input
                         type = "text"
                         placeholder = "i.e. what is this about"
@@ -102,7 +102,6 @@ function ChatToDocument({doc} : {doc : Y.Doc}) {
                         onChange={(e) => setInput(e.target.value)}
                     />
                     <Button 
-                        variant = "outline"
                         type = "submit"
                         disabled = {!input || isPending}
                     >
