@@ -5,6 +5,8 @@ import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 
 export const metadata: Metadata = {
@@ -19,13 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-        <html lang="en">
-        <body className="flex flex-col min-h-screen">
-            <Header/>
-            <div className="flex flex-1">
-                <Sidebar/>
-                {children}
-            </div>
+        <html lang="en" className="">
+        <body className="flex min-h-screen">
+            <div className="hidden md:flex w-52 border-r border-gray-200 min-h-screen ">
+                    <Sidebar/>
+            </div>        
+            <div className="flex flex-1 flex-col h-full">
+                <Header/>
+                {children}        
+            </div>  
             <Toaster richColors />
         </body>
         </html>

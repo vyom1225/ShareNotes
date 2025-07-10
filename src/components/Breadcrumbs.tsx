@@ -13,15 +13,16 @@ import { useDocumentData} from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 
 function Breadcrumbs() {
-    const path = usePathname();
-    const segments = path.split("/")
-    let data = {
-        title : ""
-    }
-    if(segments.length > 2){
-        const id = segments[segments.length -1];
-        let [data , loading , error] = useDocumentData(doc(db, "documents", id));
-    }
+    // const path = usePathname();
+    // const segments = path.split("/")
+    // let data = {
+    //     title : ""
+    // }
+    // if(segments.length > 2){
+    //     const id = segments[segments.length -1];
+    //     let [data , loading , error] = useDocumentData(doc(db, "documents", id));
+    //     console.log(data);
+    // }
    
     return (
        <Breadcrumb>
@@ -29,7 +30,7 @@ function Breadcrumbs() {
             <BreadcrumbItem>
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
-            {
+            {/* {
                 segments.length > 2 && (
                     <>
                         <BreadcrumbSeparator/>
@@ -38,7 +39,7 @@ function Breadcrumbs() {
                         </BreadcrumbItem>
                     </>
                 )
-            }
+            } */}
         </BreadcrumbList>
         </Breadcrumb>
     )

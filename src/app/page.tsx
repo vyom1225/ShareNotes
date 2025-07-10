@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex-1 p-8">
+    <main className="flex-1 p-8 ">
     <div className="max-w-4xl mx-auto">
       <div className="text-center py-4">
         <div className="mb-8">

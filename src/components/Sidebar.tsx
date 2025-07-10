@@ -28,7 +28,6 @@ interface RoomDocument extends DocumentData{
 function Sidebar() {
 
    const {user} = useUser();
-
    const [groupedData, setGroupedData] = useState<{
         owner: RoomDocument[];
         editor : RoomDocument[];
@@ -75,22 +74,16 @@ function Sidebar() {
    },[data])
 
   return (
-    <div className="p-4 border-r-1 border-secondary bg-muted-foreground/15 flex flex-col gap-4">
-        <div className="md:hidden">
-            <Sheet>
-            <SheetTrigger>Open</SheetTrigger>
-            <SheetContent>
-                <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                    This action cannot be undone. This will permanently delete your account
-                    and remove your data from our servers.
-                </SheetDescription>
-                </SheetHeader>
-            </SheetContent>
-            </Sheet>
-        </div>
-        <NewDocumentButton/>
+    <div className="flex flex-col h-full w-full ">
+        <div className="bg-white min-h-[50px] flex justify-center items-center p-2">   
+                {user && (
+                    <div>
+                        {user?.firstName}{`'s`} Space
+                    </div>                 
+                )}
+        </div>  
+    <div className="h-full p-4 bg-muted-foreground/15 flex flex-col gap-4 ">    
+        <NewDocumentButton />
         <div className="flex flex-col gap-2">
             <h2 className="text-sm text-muted-foreground font-semibold">My Documents</h2>
             {   
@@ -123,8 +116,8 @@ function Sidebar() {
                     </div>
                 )
             }
-        </div>
-       
+        </div>    
+    </div>
     </div>
   )
 }

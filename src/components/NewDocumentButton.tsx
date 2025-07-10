@@ -16,7 +16,7 @@ function NewDocumentButton() {
         });
     }
   return (
-        <Button onClick={handleCreateNewDocument} disabled={isPending}>
+        <Button onClick={handleCreateNewDocument} disabled={isPending} className="mt-8 md:mt-0">
             {isPending ? "Creating..." : "New Document"}
         </Button>
   )

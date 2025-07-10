@@ -13,14 +13,15 @@ export function Avatars(){
     const all = [...others, self];
 
     return (
-        <div className="flex">
-            <p className="text-muted-foreground text-semibold mr-2">Users Currently editing this page</p>
+        <div className="flex items-center">
+            <p className="text-muted-foreground text-semibold mr-2">{all.length} users are currently editing this page</p>
             <div>
-                {all.map((user) => {
-                    return (<Tooltip>
+                {all.map((user , index) => {
+                    return (
+                    <Tooltip>
                         <TooltipTrigger>
-                            <Avatar>
-                                <AvatarImage src={user?.info.avatar} />
+                            <Avatar className={`${index != 0 ? `transform -translate-x-5 z-${index}` : ""}`}>
+                                <AvatarImage src={user?.info.avatar}/>
                                 <AvatarFallback>{user?.info.name[0]}{user?.info.name[1]}</AvatarFallback>
                             </Avatar>
                         </TooltipTrigger>
